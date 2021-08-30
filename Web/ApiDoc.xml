@@ -1,0 +1,2209 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Web</name>
+    </assembly>
+    <members>
+        <member name="T:Web.Autofac.AutofacExtension">
+            <summary> 
+             //配置autofac依赖注入
+             https://blog.csdn.net/yikeshu19900128/article/details/42741779
+            </summary>
+        </member>
+        <member name="T:Web.Autofac.NotAutofacAttribute">
+            <summary>
+            指明那些类不需要被Autofac注入的注解
+            </summary>
+        </member>
+        <member name="T:Web.CodeGen.WebHostExtension">
+             <summary>
+            代码生成器。 自动生成dal、bll、controller部分代码
+             </summary>
+        </member>
+        <member name="T:Web.Controllers.Admin.AreaController">
+            <summary>
+            管理员—区域管理
+            </summary>
+            <typeparam name="Area"></typeparam>
+        </member>
+        <member name="T:Web.Controllers.Admin.AuthorityController">
+            <summary>
+            管理员—权限管理
+            </summary>
+            <typeparam name="Authority"></typeparam>
+        </member>
+        <member name="T:Web.Controllers.Admin.ImageController">
+            <summary>
+            管理员—图片管理
+            </summary>
+            <typeparam name="Image"></typeparam>
+        </member>
+        <member name="T:Web.Controllers.Admin.ResController">
+            <summary>
+            管理员—资源管理
+            </summary>
+            <typeparam name="Res"></typeparam>
+        </member>
+        <member name="T:Web.Controllers.Admin.RoleAuthorityController">
+            <summary>
+            管理员—角色权限管理
+            </summary>
+            <typeparam name="RoleAuthority"></typeparam>
+        </member>
+        <member name="T:Web.Controllers.Admin.RoleController">
+            <summary>
+            管理员—角色管理
+            </summary>
+            <typeparam name="Role"></typeparam>
+        </member>
+        <member name="T:Web.Controllers.Admin.UserController">
+            <summary>
+            管理员—用户管理
+            </summary>
+            <typeparam name="User"></typeparam>
+        </member>
+        <member name="T:Web.Controllers.AiController">
+            <summary>
+            ai智能接口
+            </summary>
+        </member>
+        <member name="M:Web.Controllers.AiController.Speech(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            语音识别
+            </summary>
+            <param name="file"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Controllers.AiController.Translation(System.String,System.String,System.String)">
+            <summary>
+             文本翻译。支持get。
+            </summary>
+            <param name="text"></param>
+            <param name="fl">原来语言类型。语言列表：zh:中文，en:英语，uy：维吾尔语</param>
+            <param name="tl">目标语言类型。语言列表：zh:中文，en:英语，uy：维吾尔语</param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Controllers.AiController.TranslationXML(System.String,System.String,System.String)">
+            <summary>
+            XML翻译。不能超过5000字
+            </summary>
+            <param name="xml"></param>
+            <param name="fl"></param>
+            <param name="tl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Controllers.AiController.TranslationHTML(System.String,System.String,System.String)">
+            <summary>
+            翻译网页，待完善。网页字符数太多，该如何优化？
+            </summary>
+            <param name="href"></param>
+            <param name="fl"></param>
+            <param name="tl"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Controllers.DefaultController">
+             <summary>
+            常用的接口
+             </summary>
+        </member>
+        <member name="M:Web.Controllers.DefaultController.Login(Common.Userinfo)">
+            <summary>
+            登录
+            </summary>
+            <param name="o">接收username、password、type三个参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Controllers.DefaultController.WxMpLogin(System.String,System.String,System.String,System.String)">
+            <summary>
+            微信小程序登录
+            </summary>
+            <param name="code"></param>
+            <param name="username">注册用户名</param>
+            <param name="avatar">头像</param>
+            <param name="type">用户类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Controllers.DefaultController.WxAppLogin(System.String,System.String,System.String)">
+            <summary>
+            微信APP登录。参考
+            https://developers.weixin.qq.com/doc/oplatform/Mobile_App/WeChat_Login/Development_Guide.html
+            
+            https://www.cnblogs.com/zhaozi/p/5527739.html
+            </summary>
+            <param name="access_token"></param>
+            <param name="openid"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Controllers.DefaultController.GetUserinfo">
+            <summary>
+            获取登录信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Controllers.DefaultController.GetQRCode(System.String,System.Int32)">
+            <summary>
+            生成二维码图片
+            </summary>
+            <param name="text">生成的文字</param>
+            <param name="size">生成二维码图片的像素大小</param>
+        </member>
+        <member name="M:Web.Controllers.DefaultController.AppUpdate(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            APP更新检查
+            </summary>
+            <param name="appid"></param>
+            <param name="version"></param>
+            <param name="imei"></param>
+            <param name="platform"></param>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Controllers.MyBaseController`1">
+            <summary>
+            公共的属性、方法、变量
+            </summary>
+        </member>
+        <member name="F:Web.Controllers.MyBaseController`1.IntroLen">
+            <summary>
+            授课资源简介长度
+            </summary>
+        </member>
+        <member name="P:Web.Controllers.MyBaseController`1.MyUser">
+            <summary>
+            注入身份信息
+            </summary>
+        </member>
+        <member name="T:Web.Controllers.WebSocketController">
+            <summary>
+            即时聊天控制器websocket
+            </summary>
+        </member>
+        <member name="M:Web.Controllers.WebSocketController.PreConnect(System.String)">
+            <summary>
+            获取websocket地址。即时聊天之前必须调用本方法获取地址
+            </summary>
+            <param name="websocketId">本地标识，若无则不传，接口会返回新的，请保存本地localStoregy重复使用</param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Controllers.WebSocketController.GetChannels">
+            <summary>
+            群聊，获取群列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Controllers.WebSocketController.GetChanOnline(System.String)">
+            <summary>
+            获取群聊频道的在线人数
+            </summary>
+            <param name="chan">群聊频道名</param>
+            <returns>在线人数</returns>
+        </member>
+        <member name="M:Web.Controllers.WebSocketController.JoinChannel(System.String,System.String)">
+            <summary>
+            群聊，绑定消息频道。加入频道
+            </summary>
+            <param name="websocketId">本地标识，若无则不传，接口会返回，请保存本地重复使用</param>
+            <param name="channel">消息频道</param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Controllers.WebSocketController.LeaveChan(System.String,System.String)">
+            <summary>
+            退出频道
+            </summary>
+            <param name="websocketId"></param>
+            <param name="channel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Controllers.WebSocketController.SendChannelmsg(System.String,System.String,System.String)">
+            <summary>
+            群聊，发送频道消息，绑定频道的所有人将收到消息
+            </summary>
+            <param name="channel">消息频道</param>
+            <param name="msg">发送内容</param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Controllers.WebSocketController.Sendmsg(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            单聊
+            </summary>
+            <param name="senderWebsocketId">发送者</param>
+            <param name="receiveWebsocketId">接收者</param>
+            <param name="msg">发送内容</param>
+            <param name="isReceipt">是否需要回执</param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Controllers.Weixin.WeChatController">
+            <summary>
+            微信公众平台接入入口
+            </summary>
+        </member>
+        <member name="F:Web.Controllers.Weixin.WeChatController.httpHelper">
+            <summary>
+            获取http请求
+            </summary>
+        </member>
+        <member name="F:Web.Controllers.Weixin.WeChatController.redisCache">
+            <summary>
+            redis缓存
+            </summary>
+        </member>
+        <member name="M:Web.Controllers.Weixin.WeChatController.Gateway(System.String,System.String,System.String,System.String)">
+            <summary>
+            验证微信签名
+            </summary>
+            * 将token、timestamp、nonce三个参数进行字典序排序
+            * 将三个参数字符串拼接成一个字符串进行sha1加密
+            * 开发者获得加密后的字符串可与signature对比，标识该请求来源于微信。
+            <returns></returns>
+        </member>
+        <member name="M:Web.Controllers.Weixin.WeChatController.GetAccessToken">
+            <summary>
+            获取微信access_token
+            </summary>
+        </member>
+        <member name="T:Web.Users.Controllers.ImageController">
+            <summary>
+            图片资源管理（包含普通会员、教师、学生）
+            </summary>
+        </member>
+        <member name="M:Web.Users.Controllers.ImageController.Upload(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            图片上传
+            </summary>
+            <param name="file"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.DB.InitDatabase">
+            <summary>
+            初始化数据
+            </summary>
+        </member>
+        <member name="T:Web.DB.WebHostExtension">
+            <summary>
+            初始化数据库、执行迁移等功能。
+            1、Add-Migration 版本名  //令创建迭代版本
+            2、Remove-Migration  删除迁移
+            </summary>
+        </member>
+        <member name="T:Web.Extension.CorsMiddleware">
+            <summary>
+            跨域中间件，允许所有域访问。生产环境慎用
+            </summary>
+        </member>
+        <member name="T:Web.Extension.DistributedCacheExtensions">
+            <summary>
+            分布式缓存扩展方法
+            </summary>
+        </member>
+        <member name="T:Web.Extension.ModelStateExtension">
+            <summary>
+            ModelState扩展类。获取错误消息
+            </summary>
+        </member>
+        <member name="M:Web.Extension.ModelStateExtension.GetFirstErrMsg(Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary)">
+            <summary>
+            获取模型绑定中的第一条错误信息
+            </summary>
+            <param name="msDictionary"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Extension.ModelStateExtension.GetErrMsgList(Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary)">
+            <summary>
+             获取错误信息列表
+            </summary>
+            <param name="msDictionary"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Extension.ModelStateExtension.GetAllErrMsgStr(Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary,System.String)">
+            <summary>
+            获取ModelState所有错误信息，间隔符间隔
+            </summary>
+            <param name="msDictionary"></param>
+            <param name="splitStr">间隔符</param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Extension.OptionsMiddlewareExtension">
+            <summary>
+            请求预检查，扩展方法
+            </summary>
+        </member>
+        <member name="T:Web.Extension.QuartzExtensions">
+            <summary>
+            启动定时器服务，后台服务
+            </summary>
+        </member>
+        <member name="M:Web.Extension.QuartzExtensions.UseQuartz(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            使用定时器
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Extension.SwaggerExtension">
+            <summary>
+            Swagger文档扩展方法
+            </summary>
+        </member>
+        <member name="T:Web.Filter.QueryableAttribute">
+            <summary>。
+            是否启用查询过滤器。自定义特性
+            （1）用于判断是否需要给model模型实体类添加身份标志
+            （2）用于是否给方法参数where字典添加查询条件
+            </summary>
+        </member>
+        <member name="P:Web.Filter.QueryableAttribute.Enable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="T:Web.Filter.QueryFilterAttribute">
+            <summary>
+            查询过滤器。
+            (1)为模型添加用户标志,添加修改设置用户标志。
+            a、对于add和update方法，如实体类继承了IUser并且用户已经登录，则给实体类自动添加UserId值
+            b、对于add和update方法，如添加或修改的用户为管理员（角色以"admin"开头），则给实体类sys值设置为true，表示系统资源，否则为false
+            (2)用于查询添加过滤条件
+            </summary>
+        </member>
+        <member name="M:Web.Filter.QueryFilterAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            OnActionExecuting方法在Controller的Action执行前执行
+            </summary>
+        </member>
+        <member name="M:Web.Filter.QueryFilterAttribute.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <summary>
+            OnActionExecuted方法在Controller的Action执行后执行
+            </summary>
+        </member>
+        <member name="T:Web.Jwt.JwtAuthorizationFilter">
+            <summary>
+            授权中间件
+            https://www.cnblogs.com/whuanle/p/12497614.html
+            
+            </summary>
+        </member>
+        <member name="P:Web.Jwt.JwtAuthorizationFilter.cache">
+            <summary>
+            redis缓存
+            </summary>
+        </member>
+        <member name="M:Web.Jwt.JwtAuthorizationFilter.#ctor(Microsoft.AspNetCore.Http.RequestDelegate)">
+            <summary>
+            
+            </summary>
+            <param name="next"></param>
+        </member>
+        <member name="M:Web.Jwt.JwtAuthorizationFilter.Invoke(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            
+            </summary>
+            <param name="httpContext"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Jwt.JwtConfig">
+            <summary>
+            Jwt配置
+            </summary>
+        </member>
+        <member name="P:Web.Jwt.JwtConfig.Issuer">
+            <summary>
+            token是谁颁发的
+            </summary>
+        </member>
+        <member name="P:Web.Jwt.JwtConfig.Audience">
+            <summary>
+            token可以给那些客户端使用
+            </summary>
+        </member>
+        <member name="P:Web.Jwt.JwtConfig.SecretKey">
+            <summary>
+            安全密钥  加密的key（SecretKey必须大于16个,是大于，不是大于等于）
+            </summary>
+        </member>
+        <member name="P:Web.Jwt.JwtConfig.WebExp">
+            <summary>
+            Web端过期时间
+            </summary>
+        </member>
+        <member name="P:Web.Jwt.JwtConfig.AppExp">
+            <summary>
+            移动端过期时间
+            </summary>
+        </member>
+        <member name="P:Web.Jwt.JwtConfig.MiniProgramExp">
+            <summary>
+            小程序过期时间
+            </summary>
+        </member>
+        <member name="P:Web.Jwt.JwtConfig.OtherExp">
+            <summary>
+            其他端过期时间
+            </summary>
+        </member>
+        <member name="T:Web.Jwt.JwtExtension">
+            <summary>
+            https://www.cnblogs.com/RainingNight/p/authorization-in-asp-net-core.html
+            </summary>
+        </member>
+        <member name="T:Web.Jwt.JwtHelper">
+            <summary>
+            Jwt帮助类
+            https://www.cnblogs.com/RayWang/p/9255093.html
+            https://blog.csdn.net/sd7o95o/article/details/78488556
+            </summary>
+        </member>
+        <member name="M:Web.Jwt.JwtHelper.IssueJWT(Web.Jwt.Token,Web.Jwt.JwtConfig)">
+            <summary>
+            颁发JWT字符串
+            </summary>
+            <param name="tokenModel"></param>
+            <param name="jwtConfig"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Jwt.JwtHelper.SerializeJWT(System.String)">
+            <summary>
+            解析
+            </summary>
+            <param name="jwtStr"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Jwt.Token">
+            <summary>
+            令牌
+            </summary>
+        </member>
+        <member name="P:Web.Jwt.Token.Uid">
+            <summary>
+            登录用户Id
+            </summary>
+        </member>
+        <member name="P:Web.Jwt.Token.Uname">
+            <summary>
+            登录用户名
+            </summary>
+        </member>
+        <member name="P:Web.Jwt.Token.Role">
+            <summary>
+            身份角色
+            </summary>
+        </member>
+        <member name="P:Web.Jwt.Token.Project">
+            <summary>
+            项目名称
+            </summary>
+        </member>
+        <member name="P:Web.Jwt.Token.TokenType">
+            <summary>
+            令牌类型（终端类型）
+            </summary>
+        </member>
+        <member name="P:Web.Jwt.Token.ClasssId">
+            <summary>
+            班级id
+            </summary>
+        </member>
+        <member name="P:Web.Jwt.Token.SchoolId">
+            <summary>
+            学校id
+            </summary>
+        </member>
+        <member name="P:Web.Jwt.Token.Type">
+            <summary>
+            身份类型
+            </summary>
+        </member>
+        <member name="T:Web.Jwt.TokenType">
+            <summary>
+            终端类型枚举
+            </summary>
+        </member>
+        <member name="T:Web.Redis.MyRedisHelper">
+            <summary>
+            Redis操作。键过期通知，http://www.mamicode.com/info-detail-1889044.html
+            </summary>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.StringSet(System.String,System.String,System.Nullable{System.TimeSpan})">
+            <summary>
+            保存单个key value
+            </summary>
+            <param name="key">Redis Key</param>
+            <param name="value">保存的值</param>
+            <param name="expiry">过期时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.StringSet(System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{StackExchange.Redis.RedisKey,StackExchange.Redis.RedisValue}})">
+            <summary>
+            保存多个key value
+            </summary>
+            <param name="keyValues">键值对</param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.StringSet``1(System.String,``0,System.Nullable{System.TimeSpan})">
+            <summary>
+            保存一个对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="obj"></param>
+            <param name="expiry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.StringGet(System.String)">
+            <summary>
+            获取单个key的值
+            </summary>
+            <param name="key">Redis Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.StringGet(System.Collections.Generic.List{System.String})">
+            <summary>
+            获取多个Key
+            </summary>
+            <param name="listKey">Redis Key集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.StringGet``1(System.String)">
+            <summary>
+            获取一个key的对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.StringIncrement(System.String,System.Double)">
+            <summary>
+            为数字增长val
+            </summary>
+            <param name="key"></param>
+            <param name="val">可以为负</param>
+            <returns>增长后的值</returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.StringDecrement(System.String,System.Double)">
+            <summary>
+            为数字减少val
+            </summary>
+            <param name="key"></param>
+            <param name="val">可以为负</param>
+            <returns>减少后的值</returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.StringSetAsync(System.String,System.String,System.Nullable{System.TimeSpan})">
+            <summary>
+            保存单个key value
+            </summary>
+            <param name="key">Redis Key</param>
+            <param name="value">保存的值</param>
+            <param name="expiry">过期时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.StringSetAsync(System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{StackExchange.Redis.RedisKey,StackExchange.Redis.RedisValue}})">
+            <summary>
+            保存多个key value
+            </summary>
+            <param name="keyValues">键值对</param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.StringSetAsync``1(System.String,``0,System.Nullable{System.TimeSpan})">
+            <summary>
+            保存一个对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="obj"></param>
+            <param name="expiry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.StringGetAsync(System.String)">
+            <summary>
+            获取单个key的值
+            </summary>
+            <param name="key">Redis Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.StringGetAsync(System.Collections.Generic.List{System.String})">
+            <summary>
+            获取多个Key
+            </summary>
+            <param name="listKey">Redis Key集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.StringGetAsync``1(System.String)">
+            <summary>
+            获取一个key的对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.StringIncrementAsync(System.String,System.Double)">
+            <summary>
+            为数字增长val
+            </summary>
+            <param name="key"></param>
+            <param name="val">可以为负</param>
+            <returns>增长后的值</returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.StringDecrementAsync(System.String,System.Double)">
+            <summary>
+            为数字减少val
+            </summary>
+            <param name="key"></param>
+            <param name="val">可以为负</param>
+            <returns>减少后的值</returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.HashExists(System.String,System.String)">
+            <summary>
+            判断某个数据是否已经被缓存
+            </summary>
+            <param name="key"></param>
+            <param name="dataKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.HashSet``1(System.String,System.String,``0)">
+            <summary>
+            存储数据到hash表
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="dataKey"></param>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.HashDelete(System.String,System.String)">
+            <summary>
+            移除hash中的某值
+            </summary>
+            <param name="key"></param>
+            <param name="dataKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.HashDelete(System.String,System.Collections.Generic.List{StackExchange.Redis.RedisValue})">
+            <summary>
+            移除hash中的多个值
+            </summary>
+            <param name="key"></param>
+            <param name="dataKeys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.HashGet``1(System.String,System.String)">
+            <summary>
+            从hash表获取数据
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="dataKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.HashIncrement(System.String,System.String,System.Double)">
+            <summary>
+            为数字增长val
+            </summary>
+            <param name="key"></param>
+            <param name="dataKey"></param>
+            <param name="val">可以为负</param>
+            <returns>增长后的值</returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.HashDecrement(System.String,System.String,System.Double)">
+            <summary>
+            为数字减少val
+            </summary>
+            <param name="key"></param>
+            <param name="dataKey"></param>
+            <param name="val">可以为负</param>
+            <returns>减少后的值</returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.HashKeys``1(System.String)">
+            <summary>
+            获取hashkey所有Redis key
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.HashExistsAsync(System.String,System.String)">
+            <summary>
+            判断某个数据是否已经被缓存
+            </summary>
+            <param name="key"></param>
+            <param name="dataKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.HashSetAsync``1(System.String,System.String,``0)">
+            <summary>
+            存储数据到hash表
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="dataKey"></param>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.HashDeleteAsync(System.String,System.String)">
+            <summary>
+            移除hash中的某值
+            </summary>
+            <param name="key"></param>
+            <param name="dataKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.HashDeleteAsync(System.String,System.Collections.Generic.List{StackExchange.Redis.RedisValue})">
+            <summary>
+            移除hash中的多个值
+            </summary>
+            <param name="key"></param>
+            <param name="dataKeys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.HashGeAsync``1(System.String,System.String)">
+            <summary>
+            从hash表获取数据
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="dataKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.HashIncrementAsync(System.String,System.String,System.Double)">
+            <summary>
+            为数字增长val
+            </summary>
+            <param name="key"></param>
+            <param name="dataKey"></param>
+            <param name="val">可以为负</param>
+            <returns>增长后的值</returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.HashDecrementAsync(System.String,System.String,System.Double)">
+            <summary>
+            为数字减少val
+            </summary>
+            <param name="key"></param>
+            <param name="dataKey"></param>
+            <param name="val">可以为负</param>
+            <returns>减少后的值</returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.HashKeysAsync``1(System.String)">
+            <summary>
+            获取hashkey所有Redis key
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.ListRemove``1(System.String,``0)">
+            <summary>
+            移除指定ListId的内部List的值
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.ListRange``1(System.String)">
+            <summary>
+            获取指定key的List
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.ListRightPush``1(System.String,``0)">
+            <summary>
+            入队
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.ListRightPop``1(System.String)">
+            <summary>
+            出队
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.ListLeftPush``1(System.String,``0)">
+            <summary>
+            入栈
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.ListLeftPop``1(System.String)">
+            <summary>
+            出栈
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.ListLength(System.String)">
+            <summary>
+            获取集合中的数量
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.ListRemoveAsync``1(System.String,``0)">
+            <summary>
+            移除指定ListId的内部List的值
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.ListRangeAsync``1(System.String)">
+            <summary>
+            获取指定key的List
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.ListRightPushAsync``1(System.String,``0)">
+            <summary>
+            入队
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.ListRightPopAsync``1(System.String)">
+            <summary>
+            出队
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.ListLeftPushAsync``1(System.String,``0)">
+            <summary>
+            入栈
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.ListLeftPopAsync``1(System.String)">
+            <summary>
+            出栈
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.ListLengthAsync(System.String)">
+            <summary>
+            获取集合中的数量
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.SetAdd``1(System.String,``0)">
+            <summary>
+            添加
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.SetRemove``1(System.String,``0)">
+            <summary>
+            删除
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.SetMembers``1(System.String)">
+            <summary>
+            获取全部
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.SetLength(System.String)">
+            <summary>
+            获取集合中的数量
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.SetContains``1(System.String,``0)">
+            <summary>
+            包含
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.SetAddAsync``1(System.String,``0,System.Double)">
+            <summary>
+            添加
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="score"></param>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.SetRemoveAsync``1(System.String,``0)">
+            <summary>
+            删除
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.SetMembersAsync``1(System.String)">
+            <summary>
+            获取全部
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.SetLengthAsync(System.String)">
+            <summary>
+            获取集合中的数量
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.SetContainsAsync``1(System.String,``0)">
+            <summary>
+            包含
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.SortedSetAdd``1(System.String,``0,System.Double)">
+            <summary>
+            添加
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="score"></param>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.SortedSetRemove``1(System.String,``0)">
+            <summary>
+            删除
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.SortedSetRangeByRank``1(System.String)">
+            <summary>
+            获取全部
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.SortedSetLength(System.String)">
+            <summary>
+            获取集合中的数量
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.SortedSetContains``1(System.String,``0)">
+            <summary>
+            判断是否包含成员
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.SortedSetAddAsync``1(System.String,``0,System.Double)">
+            <summary>
+            添加
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="score"></param>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.SortedSetRemoveAsync``1(System.String,``0)">
+            <summary>
+            删除
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.SortedSetRangeByRankAsync``1(System.String)">
+            <summary>
+            获取全部
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.SortedSetLengthAsync(System.String)">
+            <summary>
+            获取集合中的数量
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.SortedSetContainsAsync``1(System.String,``0)">
+            <summary>
+            判断是否包含成员
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.KeyDelete(System.String)">
+            <summary>
+            删除单个key
+            </summary>
+            <param name="key">redis key</param>
+            <returns>是否删除成功</returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.KeyDelete(System.Collections.Generic.List{System.String})">
+            <summary>
+            删除多个key
+            </summary>
+            <param name="keys">rediskey</param>
+            <returns>成功删除的个数</returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.KeyExists(System.String)">
+            <summary>
+            判断key是否存储
+            </summary>
+            <param name="key">redis key</param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.KeyRename(System.String,System.String)">
+            <summary>
+            重新命名key
+            </summary>
+            <param name="key">就的redis key</param>
+            <param name="newKey">新的redis key</param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.KeyExpire(System.String,System.Nullable{System.TimeSpan})">
+            <summary>
+            设置Key的时间
+            </summary>
+            <param name="key">redis key</param>
+            <param name="expiry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.Subscribe(System.String,System.Action{StackExchange.Redis.RedisChannel,StackExchange.Redis.RedisValue})">
+            <summary>
+            Redis发布订阅  订阅
+            </summary>
+            <param name="subChannel"></param>
+            <param name="handler"></param>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.Publish``1(System.String,``0)">
+            <summary>
+            Redis发布订阅  发布
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="channel"></param>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.Unsubscribe(System.String)">
+            <summary>
+            Redis发布订阅  取消订阅
+            </summary>
+            <param name="channel"></param>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.UnsubscribeAll">
+            <summary>
+            Redis发布订阅  取消全部订阅
+            </summary>
+        </member>
+        <member name="M:Web.Redis.MyRedisHelper.SetSysCustomKey(System.String)">
+            <summary>
+            设置前缀
+            </summary>
+            <param name="customKey"></param>
+        </member>
+        <member name="T:Web.Redis.RedisConnectionHelp">
+            <summary>
+            ConnectionMultiplexer对象管理帮助类
+            </summary>
+        </member>
+        <member name="P:Web.Redis.RedisConnectionHelp.Instance">
+            <summary>
+            单例获取
+            </summary>
+        </member>
+        <member name="M:Web.Redis.RedisConnectionHelp.GetConnectionMultiplexer(System.String)">
+            <summary>
+            缓存获取
+            </summary>
+            <param name="connectionString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Redis.RedisConnectionHelp.MuxerConfigurationChanged(System.Object,StackExchange.Redis.EndPointEventArgs)">
+            <summary>
+            配置更改时
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Web.Redis.RedisConnectionHelp.MuxerErrorMessage(System.Object,StackExchange.Redis.RedisErrorEventArgs)">
+            <summary>
+            发生错误时
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Web.Redis.RedisConnectionHelp.MuxerConnectionRestored(System.Object,StackExchange.Redis.ConnectionFailedEventArgs)">
+            <summary>
+            重新建立连接之前的错误
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Web.Redis.RedisConnectionHelp.MuxerConnectionFailed(System.Object,StackExchange.Redis.ConnectionFailedEventArgs)">
+            <summary>
+            连接失败 ， 如果重新连接成功你将不会收到这个通知
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Web.Redis.RedisConnectionHelp.MuxerHashSlotMoved(System.Object,StackExchange.Redis.HashSlotMovedEventArgs)">
+            <summary>
+            更改集群
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Web.Redis.RedisConnectionHelp.MuxerInternalError(System.Object,StackExchange.Redis.InternalErrorEventArgs)">
+            <summary>
+            redis类库错误
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="P:Web.Security.ClaimsAccessor.Id">
+            <summary>
+            登录用户ID
+            </summary>
+        </member>
+        <member name="P:Web.Security.ClaimsAccessor.Role">
+            <summary>
+            用户角色
+            </summary>
+        </member>
+        <member name="P:Web.Security.IClaimsAccessor.Id">
+            <summary>
+            登录用户ID
+            </summary>
+        </member>
+        <member name="P:Web.Security.IClaimsAccessor.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Web.Security.IClaimsAccessor.Role">
+            <summary>
+            用户角色
+            </summary>
+        </member>
+        <member name="P:Web.Security.IClaimsAccessor.Project">
+            <summary>
+            其他身份
+            </summary>
+        </member>
+        <member name="P:Web.Security.IClaimsAccessor.SchoolId">
+            <summary>
+            学校id
+            </summary>
+        </member>
+        <member name="P:Web.Security.IClaimsAccessor.Type">
+            <summary>
+            身份类型
+            </summary>
+        </member>
+        <member name="T:Web.Startup">
+            <summary>
+            框架参考https://gitee.com/AprilBlank/April.Util.Public/blob/master/April.Simple.WebApi/Startup.cs
+            
+            参考 https://gitee.com/laozhangIsPhi/Blog.Core/blob/master/Blog.Core/Startup.cs
+            https://www.cnblogs.com/laozhang-is-phi/p/9511869.html
+            </summary>
+        </member>
+        <member name="T:Web.Util.ConfigHelper">
+            <summary>
+            配置帮助类
+            </summary>
+        </member>
+        <member name="T:Web.Util.EncryptHelper">
+            <summary>
+            加密解密工具类
+            </summary>
+        </member>
+        <member name="M:Web.Util.EncryptHelper.HmacSha1Sign(System.String)">
+            <summary>
+            HMAC-SHA1加密算法
+            </summary>
+            <param name="str">加密字符串</param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Util.GoogleTranslationHelper">
+            <summary>
+            谷歌翻译帮助类。现在有问题
+            引入的包有：ChakraCore.NET
+            <see cref="!:https://www.cnblogs.com/marso/p/google_translate_api.html"/>
+            <see cref="!:https://www.cnblogs.com/WattWang/p/csharpjs.html"/>
+            <see cref="!:https://github.com/remixjc/googletranslate-wx"/>
+            <see cref="!:https://www.52pojie.cn/thread-707169-1-1.html"/>
+            </summary>
+        </member>
+        <member name="F:Web.Util.GoogleTranslationHelper._chakraContext">
+            <summary>
+            Chakra 上下文
+            </summary>
+        </member>
+        <member name="F:Web.Util.GoogleTranslationHelper._cookieContainer">
+            <summary>
+            Cookie
+            </summary>
+        </member>
+        <member name="F:Web.Util.GoogleTranslationHelper._baseUrl">
+            <summary>
+            请求地址
+            </summary>
+        </member>
+        <member name="M:Web.Util.GoogleTranslationHelper.#cctor">
+            <summary>
+            静态
+            </summary>
+        </member>
+        <member name="M:Web.Util.GoogleTranslationHelper.Translation(System.String,System.String)">
+            <summary>
+            获取翻译结果(需要翻译的文字默认为自动)
+            </summary>
+            <param name="toLang">语言</param>
+            <param name="originalText">待翻译的文本</param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Util.GoogleTranslationHelper.Translation(System.String,System.String,System.String)">
+            <summary>
+            获取翻译结果
+            </summary>
+            <param name="fromLang">需要翻译的语言</param>
+            <param name="toLang">翻译结果的语言</param>
+            <param name="originalText">待翻译文本</param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Util.GoogleTranslationHelper.GetTK(System.String,System.String)">
+            <summary>
+            获取TK
+            </summary>
+            <param name="originalText"></param>
+            <param name="TKK"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Util.GoogleTranslationHelper.FormattedJson(System.String)">
+            <summary>
+            格式化Json
+            </summary>
+            <param name="jsonStr">Json</param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Util.HttpHelper">
+             <summary>
+             Http连接操作帮助类
+            <see cref="!:https://www.cnblogs.com/johnyong/p/13296793.html"/>
+             </summary>
+        </member>
+        <member name="F:Web.Util.HttpHelper.httpClientFactory">
+            <summary>
+            注入http请求
+            </summary>
+        </member>
+        <member name="M:Web.Util.HttpHelper.RequestAsync(System.String,System.Net.Http.HttpMethod,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Int32)">
+            <summary>
+            异步请求（通用）
+            </summary>
+            <param name="url"></param>
+            <param name="method"></param>
+            <param name="requestString"></param>
+            <param name="headers"></param>
+            <param name="timeoutSecond">默认120秒</param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Util.HttpHelper.GetUserAgent">
+            <summary>
+            用户代理
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Util.HttpHelperOld">
+            <summary>
+            Http连接操作帮助类.遗弃。netcore2.1之后建议用IHttpClientFactory
+            弃用
+            </summary>
+        </member>
+        <member name="M:Web.Util.HttpHelperOld.GetHtml(Web.Util.HttpItem)">
+            <summary>
+            根据相传入的数据，得到相应页面数据
+            </summary>
+            <param name="item">参数类对象</param>
+            <returns>返回HttpResult类型</returns>
+        </member>
+        <member name="M:Web.Util.HttpHelperOld.GetData(Web.Util.HttpItem,Web.Util.HttpResult)">
+            <summary>
+            获取数据的并解析的方法
+            </summary>
+            <param name="item"></param>
+            <param name="result"></param>
+        </member>
+        <member name="M:Web.Util.HttpHelperOld.SetEncoding(Web.Util.HttpItem,Web.Util.HttpResult,System.Byte[])">
+            <summary>
+            设置编码
+            </summary>
+            <param name="item">HttpItem</param>
+            <param name="result">HttpResult</param>
+            <param name="ResponseByte">byte[]</param>
+        </member>
+        <member name="M:Web.Util.HttpHelperOld.GetByte">
+            <summary>
+            提取网页Byte
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Util.HttpHelperOld.SetRequest(Web.Util.HttpItem)">
+             <summary>
+             为请求准备参数
+             </summary>
+            <param name="item">参数列表</param>
+        </member>
+        <member name="M:Web.Util.HttpHelperOld.SetCer(Web.Util.HttpItem)">
+            <summary>
+            设置证书
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:Web.Util.HttpHelperOld.SetCerList(Web.Util.HttpItem)">
+            <summary>
+            设置多个证书
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:Web.Util.HttpHelperOld.SetCookie(Web.Util.HttpItem)">
+            <summary>
+            设置Cookie
+            </summary>
+            <param name="item">Http参数</param>
+        </member>
+        <member name="M:Web.Util.HttpHelperOld.SetPostData(Web.Util.HttpItem)">
+            <summary>
+            设置Post数据
+            </summary>
+            <param name="item">Http参数</param>
+        </member>
+        <member name="M:Web.Util.HttpHelperOld.SetProxy(Web.Util.HttpItem)">
+            <summary>
+            设置代理
+            </summary>
+            <param name="item">参数对象</param>
+        </member>
+        <member name="M:Web.Util.HttpHelperOld.CheckValidationResult(System.Object,System.Security.Cryptography.X509Certificates.X509Certificate,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors)">
+            <summary>
+            回调验证证书问题
+            </summary>
+            <param name="sender">流对象</param>
+            <param name="certificate">证书</param>
+            <param name="chain">X509Chain</param>
+            <param name="errors">SslPolicyErrors</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:Web.Util.HttpHelperOld.BindIPEndPointCallback(System.Net.ServicePoint,System.Net.IPEndPoint,System.Int32)">
+            <summary>
+            通过设置这个属性，可以在发出连接的时候绑定客户端发出连接所使用的IP地址。 
+            </summary>
+            <param name="servicePoint"></param>
+            <param name="remoteEndPoint"></param>
+            <param name="retryCount"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Util.HttpItem">
+            <summary>
+            Http请求参考类
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.URL">
+            <summary>
+            请求URL必须填写
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.Method">
+            <summary>
+            请求方式默认为GET方式,当为POST方式时必须设置Postdata的值
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.Timeout">
+            <summary>
+            默认请求超时时间
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.ReadWriteTimeout">
+            <summary>
+            默认写入Post数据超时间
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.Host">
+            <summary>
+            设置Host的标头信息
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.KeepAlive">
+            <summary>
+             获取或设置一个值，该值指示是否与 Internet 资源建立持久性连接默认为true。
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.Accept">
+            <summary>
+            请求标头值 默认为text/html, application/xhtml+xml, */*
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.ContentType">
+            <summary>
+            请求返回类型默认 text/html
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.UserAgent">
+            <summary>
+            客户端访问信息默认Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.Encoding">
+            <summary>
+            返回数据编码默认为NUll,可以自动识别,一般为utf-8,gbk,gb2312
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.PostDataType">
+            <summary>
+            Post的数据类型
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.Postdata">
+            <summary>
+            Post请求时要发送的字符串Post数据
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.PostdataByte">
+            <summary>
+            Post请求时要发送的Byte类型的Post数据
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.CookieCollection">
+            <summary>
+            Cookie对象集合
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.Cookie">
+            <summary>
+            请求时的Cookie
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.Referer">
+            <summary>
+            来源地址，上次访问地址
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.CerPath">
+            <summary>
+            证书绝对路径
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.WebProxy">
+            <summary>
+            设置代理对象，不想使用IE默认配置就设置为Null，而且不要设置ProxyIp
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.IsToLower">
+            <summary>
+            是否设置为全文小写，默认为不转化
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.Allowautoredirect">
+            <summary>
+            支持跳转页面，查询结果将是跳转后的页面，默认是不跳转
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.Connectionlimit">
+            <summary>
+            最大连接数
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.ProxyUserName">
+            <summary>
+            代理Proxy 服务器用户名
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.ProxyPwd">
+            <summary>
+            代理 服务器密码
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.ProxyIp">
+            <summary>
+            代理 服务IP,如果要使用IE代理就设置为ieproxy
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.ResultType">
+            <summary>
+            设置返回类型String和Byte
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.Header">
+            <summary>
+            header对象
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.ProtocolVersion">
+            <summary>
+                获取或设置用于请求的 HTTP 版本。返回结果:用于请求的 HTTP 版本。默认为 System.Net.HttpVersion.Version11。
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.Expect100Continue">
+            <summary>
+             获取或设置一个 System.Boolean 值，该值确定是否使用 100-Continue 行为。如果 POST 请求需要 100-Continue 响应，则为 true；否则为 false。默认值为 true。
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.ClentCertificates">
+            <summary>
+            设置509证书集合
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.PostEncoding">
+            <summary>
+            设置或获取Post参数编码,默认的为Default编码
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.ResultCookieType">
+            <summary>
+            Cookie返回类型,默认的是只返回字符串类型
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.ICredentials">
+            <summary>
+            获取或设置请求的身份验证信息。
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.MaximumAutomaticRedirections">
+            <summary>
+            设置请求将跟随的重定向的最大数目
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.IfModifiedSince">
+            <summary>
+            获取和设置IfModifiedSince，默认为当前日期和时间
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpItem.IPEndPoint">
+             <summary>
+             设置本地的出口ip和端口
+             </summary>]
+             <example>
+            item.IPEndPoint = new IPEndPoint(IPAddress.Parse("192.168.1.1"),80);
+             </example>
+        </member>
+        <member name="P:Web.Util.HttpItem.IsReset">
+            <summary>
+            是否重置request,response的值，默认不重置，当设置为True时request,response将被设置为Null
+            </summary>
+        </member>
+        <member name="T:Web.Util.HttpResult">
+            <summary>
+            Http返回参数类
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpResult.Cookie">
+            <summary>
+            Http请求返回的Cookie
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpResult.CookieCollection">
+            <summary>
+            Cookie对象集合
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpResult.Html">
+            <summary>
+            返回的String类型数据 只有ResultType.String时才返回数据，其它情况为空
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpResult.ResultByte">
+            <summary>
+            返回的Byte数组 只有ResultType.Byte时才返回数据，其它情况为空
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpResult.Header">
+            <summary>
+            header对象
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpResult.StatusDescription">
+            <summary>
+            返回状态说明
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpResult.StatusCode">
+            <summary>
+            返回状态码,默认为OK
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpResult.ResponseUri">
+            <summary>
+            最后访问的URl
+            </summary>
+        </member>
+        <member name="P:Web.Util.HttpResult.RedirectUrl">
+            <summary>
+            获取重定向的URl
+            </summary>
+        </member>
+        <member name="T:Web.Util.ResultType">
+            <summary>
+            返回类型
+            </summary>
+        </member>
+        <member name="F:Web.Util.ResultType.String">
+            <summary>
+            表示只返回字符串 只有Html有数据
+            </summary>
+        </member>
+        <member name="F:Web.Util.ResultType.Byte">
+            <summary>
+            表示返回字符串和字节流 ResultByte和Html都有数据返回
+            </summary>
+        </member>
+        <member name="T:Web.Util.PostDataType">
+            <summary>
+            Post的数据格式默认为string
+            </summary>
+        </member>
+        <member name="F:Web.Util.PostDataType.String">
+            <summary>
+            字符串类型，这时编码Encoding可不设置
+            </summary>
+        </member>
+        <member name="F:Web.Util.PostDataType.Byte">
+            <summary>
+            Byte类型，需要设置PostdataByte参数的值编码Encoding可设置为空
+            </summary>
+        </member>
+        <member name="F:Web.Util.PostDataType.FilePath">
+            <summary>
+            传文件，Postdata必须设置为文件的绝对路径，必须设置Encoding的值
+            </summary>
+        </member>
+        <member name="T:Web.Util.ResultCookieType">
+            <summary>
+            Cookie返回类型
+            </summary>
+        </member>
+        <member name="F:Web.Util.ResultCookieType.String">
+            <summary>
+            只返回字符串类型的Cookie
+            </summary>
+        </member>
+        <member name="F:Web.Util.ResultCookieType.CookieCollection">
+            <summary>
+            CookieCollection格式的Cookie集合同时也返回String类型的cookie
+            </summary>
+        </member>
+        <member name="T:Web.Util.NiuTranslationHelper">
+            <summary>
+            小牛翻译
+            <see cref="!:https://niutrans.com/documents/develop/develop_text/free"/>
+            </summary>
+        </member>
+        <member name="M:Web.Util.NiuTranslationHelper.Translation(System.String,System.String,System.String)">
+            <summary>
+            文本翻译。支持免费/收费高级接口。默认免费接口，除非配置文件设置了参数free为false
+            语言列表：zh:中文，en:英语，uy：维吾尔语
+            </summary>
+            <param name="originalText"></param>
+            <param name="fromLang">默简体中文zh</param>
+            <param name="toLang"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Util.NiuTranslationHelper.TranslationXML(System.String,System.String,System.String)">
+            <summary>
+            翻译xml.文本翻译。支持免费/收费高级接口。默认免费接口，除非配置文件设置了参数free为false
+            语言列表：zh:中文，en:英语，uy：维吾尔语
+            </summary>
+            <param name="originalXML"></param>
+            <param name="fromLang"></param>
+            <param name="toLang"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Web.Util.NiuResult.Tgt_text">
+            <summary>
+            翻译结果
+            </summary>
+        </member>
+        <member name="P:Web.Util.NiuResult.Error_code">
+            <summary>
+            翻译状态码
+            </summary>
+        </member>
+        <member name="M:Web.Util.NiuResult.Status">
+            <summary>
+            判断是否翻译成功
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Util.NLogHelper">
+            <summary>
+            日志帮助类。调用方法：
+            NLogHelper.logger.Error("错误消息");
+            </summary>
+        </member>
+        <member name="F:Web.Util.NLogHelper.logger">
+            <summary>
+            获取当前调用类的日志对象
+            </summary>
+        </member>
+        <member name="T:Web.Util.OfficeHelper">
+            <summary>
+            Excel操作工具类
+            </summary>
+        </member>
+        <member name="M:Web.Util.OfficeHelper.ReadExcelToDataTable(System.String,System.String,System.Boolean)">
+            <summary>
+            将excel文件内容读取到DataTable数据表中
+            </summary>
+            <param name="fileName">文件完整路径名</param>
+            <param name="sheetName">指定读取excel工作薄sheet的名称</param>
+            <param name="isFirstRowColumn">第一行是否是DataTable的列名：true=是，false=否</param>
+            <returns>DataTable数据表</returns>
+        </member>
+        <member name="M:Web.Util.OfficeHelper.ReadExcelToDataTable(System.IO.Stream,System.String,System.Boolean)">
+            <summary>
+            将文件流读取到DataTable数据表中
+            </summary>
+            <param name="fileStream">文件流</param>
+            <param name="sheetName">指定读取excel工作薄sheet的名称</param>
+            <param name="isFirstRowColumn">第一行是否是DataTable的列名：true=是，false=否</param>
+            <returns>DataTable数据表</returns>
+        </member>
+        <member name="M:Web.Util.OfficeHelper.DataTableToExcel(System.Data.DataTable)">
+            <summary>
+            导出为Excel
+            </summary>
+            <param name="dataTable"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Util.QRCodeHelper">
+            <summary>
+            二维码工具类
+            <see href="https://github.com/codebude/QRCoder"/>
+            </summary>
+        </member>
+        <member name="M:Web.Util.QRCodeHelper.GetQRCode(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="text">扫描二维码时显示的文本内容，如果是网址自动跳转</param>
+            <param name="pixel">像素</param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Util.QuartzHelper">
+            <summary>
+            定时器
+            参考：https://blog.csdn.net/xiaolu1014/article/details/103880704
+            https://blog.csdn.net/weixin_44518486/article/details/101424176
+            https://blog.csdn.net/yangshangwei/article/details/78539433
+            https://blog.csdn.net/richard_666/article/details/89295460
+            https://www.cnblogs.com/wudequn/p/8506938.html
+            定时器帮助类
+            </summary>
+        </member>
+        <member name="M:Web.Util.QuartzHelper.Add(System.Type,Quartz.JobKey,Quartz.ITrigger,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            添加作业任务任务
+            </summary>
+            <param name="type">作业类</param>
+            <param name="jobKey">键，作业名、组</param>
+            <param name="trigger">触发器</param>
+            <param name="data">传递到job的数据</param>
+        </member>
+        <member name="M:Web.Util.QuartzHelper.AddAfter(System.Type,Quartz.JobKey,System.Int64,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            添加作业任务任务,多少秒之后触发
+            </summary>
+            <param name="type"></param>
+            <param name="jobKey"></param>
+            <param name="second">秒</param>
+            <param name="data">传递到job的数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Util.QuartzHelper.AddAt(System.Type,Quartz.JobKey,System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            添加作业任务任务
+            </summary>
+            <param name="type"></param>
+            <param name="jobKey"></param>
+            <param name="cron"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Util.QuartzHelper.Resume(Quartz.JobKey)">
+            <summary>
+            恢复任务
+            </summary>
+            <param name="jobKey">键</param>
+        </member>
+        <member name="M:Web.Util.QuartzHelper.Stop(Quartz.JobKey)">
+            <summary>
+            停止任务
+            </summary>
+            <param name="jobKey">键</param>
+        </member>
+        <member name="M:Web.Util.QuartzHelper.Init">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="T:Web.Util.QuartzJobRunner">
+            <summary>
+            IJob的“中间” 实现，这里我们命名为QuartzJobRunner，该实现位于IJobFactory和要运行的IJob之间
+            </summary>
+        </member>
+        <member name="T:Web.Util.JobSchedule">
+            <summary>
+            Job调度中间对象
+            </summary>
+        </member>
+        <member name="P:Web.Util.JobSchedule.Name">
+            <summary>
+            任务名称要唯一
+            </summary>
+        </member>
+        <member name="P:Web.Util.JobSchedule.JobType">
+            <summary>
+            Job类型
+            </summary>
+        </member>
+        <member name="P:Web.Util.JobSchedule.Cron">
+            <summary>
+            Cron表达式
+            </summary>
+        </member>
+        <member name="P:Web.Util.JobSchedule.Data">
+            <summary>
+            向job传递的数据
+            </summary>
+        </member>
+        <member name="P:Web.Util.JobSchedule.JobStatu">
+            <summary>
+            Job状态
+            </summary>
+        </member>
+        <member name="T:Web.Util.JobStatus">
+            <summary>
+            Job运行状态
+            </summary>
+        </member>
+        <member name="T:Web.Util.QuartzHostedService">
+            <summary>
+            https://www.cnblogs.com/yilezhu/p/12644208.html
+            
+            https://www.cnblogs.com/dayang12525/p/13083026.html
+            
+            https://www.cnblogs.com/yilezhu/p/12757411.html
+            </summary>
+        </member>
+        <member name="T:Web.Util.IJobProvider">
+            <summary>
+            job提供者
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Web.Util.IJobProvider.Init" -->
+        <member name="T:BD.BDConfig">
+            <summary>
+            百度配置
+            申请 https://console.bce.baidu.com/
+            https://ai.baidu.com/ai-doc/SPEECH/sk4o0bnzp
+            </summary>
+        </member>
+        <member name="T:BD.BDResult">
+            <summary>
+            百度返回结果
+            </summary>
+        </member>
+        <member name="T:BD.BDSdk">
+            <summary>
+            百度SDK
+            </summary>
+        </member>
+        <member name="T:Weixin.WxConfig">
+            <summary>
+            微信配置
+            </summary>
+        </member>
+        <member name="T:Weixin.WxMiniConfig">
+            <summary>
+            微信小程序配置
+            </summary>
+        </member>
+        <member name="T:Weixin.WxMpConfig">
+            <summary>
+            微信公众号配置
+            </summary>
+        </member>
+        <member name="T:Weixin.WxMenu">
+            <summary>
+            创建菜单
+            </summary>
+        </member>
+        <member name="P:Weixin.WxMenu.button">
+            <summary>
+            一级菜单数组，个数应为1~3个
+            </summary>
+        </member>
+        <member name="T:Weixin.Button">
+            <summary>
+            一级菜单数组，个数应为1~3个
+            </summary>
+        </member>
+        <member name="P:Weixin.Button.name">
+            <summary>
+            菜单标题，不超过16个字节，子菜单不超过60个字节
+            </summary>
+        </member>
+        <member name="P:Weixin.Button.type">
+            <summary>
+            菜单的响应动作类型，view表示网页类型，click表示点击类型，miniprogram表示小程序类型
+            </summary>
+        </member>
+        <member name="P:Weixin.Button.key">
+            <summary>
+            菜单KEY值，用于消息接口推送，不超过128字节 
+            click等点击类型必须
+            </summary>
+        </member>
+        <member name="P:Weixin.Button.media_id">
+            <summary>
+            调用新增永久素材接口返回的合法media_id
+            media_id类型和view_limited类型必须
+            </summary>
+        </member>
+        <member name="P:Weixin.Button.sub_button">
+            <summary>
+            二级菜单数组，个数应为1~5个
+            </summary>
+        </member>
+        <member name="T:Weixin.Sub_Button">
+            <summary>
+            二级菜单数组，个数应为1~5个
+            </summary>
+        </member>
+        <member name="P:Weixin.Sub_Button.type">
+            <summary>
+            菜单的响应动作类型，view表示网页类型，click表示点击类型，miniprogram表示小程序类型
+            </summary>
+        </member>
+        <member name="P:Weixin.Sub_Button.name">
+            <summary>
+            菜单标题，不超过16个字节，子菜单不超过60个字节
+            </summary>
+        </member>
+        <member name="P:Weixin.Sub_Button.url">
+            <summary>
+            网页链接，用户点击菜单可打开链接，不超过1024字节。type为miniprogram时，不支持小程序的老版本客户端将打开本url。
+            view、miniprogram类型必须
+            </summary>
+        </member>
+        <member name="P:Weixin.Sub_Button.appid">
+            <summary>
+            小程序的appid（仅认证公众号可配置）
+            </summary>
+        </member>
+        <member name="P:Weixin.Sub_Button.pagepath">
+            <summary>
+            小程序的页面路径
+            </summary>
+        </member>
+        <member name="P:Weixin.Sub_Button.key">
+            <summary>
+            菜单KEY值，用于消息接口推送，不超过128字节
+            </summary>
+        </member>
+        <member name="T:Weixin.Code2SessionResult">
+            <summary>
+            微信小程序结果
+            </summary>
+        </member>
+        <member name="P:Weixin.Code2SessionResult.openid">
+            <summary>
+            用户唯一标识
+            </summary>
+        </member>
+        <member name="P:Weixin.Code2SessionResult.session_key">
+            <summary>
+            用户唯一标识
+            </summary>
+        </member>
+        <member name="P:Weixin.Code2SessionResult.unionid">
+            <summary>
+            用户在开放平台的唯一标识符，在满足 UnionID 下发条件的情况下会返回，详见 UnionID 机制说明。
+            </summary>
+        </member>
+        <member name="T:Weixin.WeCahtBackdata`1">
+            <summary>
+            微信系统返回信息
+            </summary>
+            <typeparam name="T">指定返回类型</typeparam>
+        </member>
+        <member name="F:Weixin.WeCahtBackdata`1.ResponseState">
+            <summary>
+            接口返回数据状态true成功|false失败
+            </summary>
+        </member>
+        <member name="F:Weixin.WeCahtBackdata`1.ResponseData">
+            <summary>
+            接口返回正确数据
+            </summary>
+        </member>
+        <member name="F:Weixin.WeCahtBackdata`1.ErrorData">
+            <summary>
+            接口返回错误时间
+            </summary>
+        </member>
+        <member name="T:Weixin.WxError">
+            <summary>
+            微信接口返回错误类
+            </summary>
+        </member>
+        <member name="F:Weixin.WxError.errcode">
+            <summary>
+            接口错误代码
+            </summary>
+        </member>
+        <member name="F:Weixin.WxError.errmsg">
+            <summary>
+            接口错误消息
+            </summary>
+        </member>
+        <member name="T:Weixin.WxAaccessToken">
+            <summary>
+            获取接口返回凭证Token
+            </summary>
+        </member>
+        <member name="F:Weixin.WxAaccessToken.access_token">
+            <summary>
+            获取到的凭证
+            </summary>
+        </member>
+        <member name="F:Weixin.WxAaccessToken.expires_in">
+            <summary>
+            凭证有效时间，单位：秒
+            </summary>
+        </member>
+        <member name="T:Weixin.WeChatOpenidlist">
+            <summary>
+            获取用户OpenID列表
+            </summary>
+        </member>
+        <member name="F:Weixin.WeChatOpenidlist.total">
+            <summary>
+            关注该公众账号的总用户数
+            </summary>
+        </member>
+        <member name="F:Weixin.WeChatOpenidlist.count">
+            <summary>
+            拉取的OPENID个数，最大值为10000
+            </summary>
+        </member>
+        <member name="F:Weixin.WeChatOpenidlist.data">
+            <summary>
+            列表数据，OPENID的列表
+            </summary>
+        </member>
+        <member name="F:Weixin.WeChatOpenidlist.next_openid">
+            <summary>
+            拉取列表的最后一个用户的OPENID
+            </summary>
+        </member>
+        <member name="T:Weixin.Data">
+            <summary>
+            openid对象
+            </summary>
+        </member>
+        <member name="F:Weixin.Data.openid">
+            <summary>
+            用户标识
+            </summary>
+        </member>
+        <member name="T:Weixin.WeChatUserInfo">
+            <summary>
+            获取用户个人信息
+            </summary>
+        </member>
+        <member name="F:Weixin.WeChatUserInfo.subscribe">
+            <summary>
+            是否订阅该公众号0没有关注|1已关注
+            </summary>
+        </member>
+        <member name="F:Weixin.WeChatUserInfo.openid">
+            <summary>
+            用户的标识，对当前公众号唯一
+            </summary>
+        </member>
+        <member name="F:Weixin.WeChatUserInfo.nickname">
+            <summary>
+            用户的昵称
+            </summary>
+        </member>
+        <member name="F:Weixin.WeChatUserInfo.sex">
+            <summary>
+            用户的性别0未知|1男性|2女性
+            </summary>
+        </member>
+        <member name="F:Weixin.WeChatUserInfo.city">
+            <summary>
+            用户所在城市
+            </summary>
+        </member>
+        <member name="F:Weixin.WeChatUserInfo.country">
+            <summary>
+            用户所在国家
+            </summary>
+        </member>
+        <member name="F:Weixin.WeChatUserInfo.province">
+            <summary>
+            用户所在省份
+            </summary>
+        </member>
+        <member name="F:Weixin.WeChatUserInfo.language">
+            <summary>
+            用户的语言
+            </summary>
+        </member>
+        <member name="F:Weixin.WeChatUserInfo.headimgurl">
+            <summary>
+            用户头像,最后一个数值代表正方形头像大小（有0、46、64、96、132数值可选，0代表640*640正方形头像）
+            </summary>
+        </member>
+        <member name="F:Weixin.WeChatUserInfo.subscribe_time">
+            <summary>
+            用户关注时间
+            </summary>
+        </member>
+        <member name="F:Weixin.WeChatUserInfo.unionid">
+            <summary>
+            绑定到微信开放平台唯一标识
+            </summary>
+        </member>
+        <member name="F:Weixin.WeChatUserInfo.remark">
+            <summary>
+            粉丝备注
+            </summary>
+        </member>
+        <member name="F:Weixin.WeChatUserInfo.groupid">
+            <summary>
+            用户所在的分组ID（兼容旧的用户分组接口）
+            </summary>
+        </member>
+        <member name="F:Weixin.WeChatUserInfo.tagid_list">
+            <summary>
+            用户被打上的标签ID列表
+            </summary>
+        </member>
+    </members>
+</doc>

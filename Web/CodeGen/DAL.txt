@@ -1,0 +1,15 @@
+/* author:QinYongcheng */
+using System;
+using System.Collections.Generic;
+using System.Text;
+using Model;
+namespace DAL.Impl
+{
+
+    public class {{entityName}}DAL : BaseDAL<{{entityName}}>, I{{entityName}}DAL
+    {
+        public {{entityName}}DAL(MyDbContext db) : base(db)
+        {
+        }
+    }
+}

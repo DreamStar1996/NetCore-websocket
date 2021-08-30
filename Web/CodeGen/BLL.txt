@@ -1,0 +1,15 @@
+/* author:QinYongcheng */
+using System;
+using System.Collections.Generic;
+using System.Text;
+using Model;
+using DAL;
+namespace Bll.Impl
+{
+    public class {{entityName}}Bll : BaseBll<{{entityName}}>, I{{entityName}}Bll
+    {
+        public {{entityName}}Bll(I{{entityName}}DAL dal):base(dal)
+        {
+        }
+    }
+}

@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Model</name>
+    </assembly>
+    <members>
+        <member name="T:Model.Area">
+            <summary>
+            区域地址
+            </summary>
+        </member>
+        <member name="P:Model.Area.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="T:Model.Authority">
+            权限
+        </member>
+        <member name="P:Model.Authority.Name">
+            
+            权限名称,用于界面显示
+        </member>
+        <member name="P:Model.Authority.Code">
+            权限标识，用于程序内部区别查找
+        </member>
+        <member name="T:Model.AuthorityRes">
+            权限资源中间表，多对多用哪到
+            @see https://docs.microsoft.com/zh-cn/ef/core/modeling/relationships?tabs=fluent-api%2Cfluent-api-simple-key%2Csimple-key
+        </member>
+        <member name="T:Model.ID">
+            <summary>
+            统一
+            </summary>
+        </member>
+        <member name="P:Model.ID.Sys">
+            <summary>
+            true，为系统、行政，即学校或系统，false为个人。为true表示是系统发布的信息资源
+            </summary>
+        </member>
+        <member name="P:Model.ID.Open">
+            <summary>
+            公开，是否公开显示到前台界面
+            </summary>
+        </member>
+        <member name="P:Model.ID.Passed">
+            <summary>
+            显示到前台界面，审核是否通过。有些资源需要申请为公开，然后审核通过后才能显示到前台界面
+            </summary>
+        </member>
+        <member name="P:Model.ID.Order">
+            <summary>
+            排序因子,默认系统不会根据Order排序，客户端前台可以通过查询参数指定排列方式
+            </summary>
+        </member>
+        <member name="P:Model.Person.Role">
+            角色，可以多个角色。多个之间用,分割角色可以继承
+        </member>
+        <member name="P:Model.Person.Emergency_number">
+            <summary>
+            紧急联系电话
+            </summary>
+        </member>
+        <member name="P:Model.Person.Credentials">
+            <summary>
+            资格证书
+            </summary>
+        </member>
+        <member name="T:Model.Res">
+            资源
+        </member>
+        <member name="P:Model.Res.Value">
+            资源值 ,如网址、方法名
+        </member>
+        <member name="T:Model.Role">
+            角色
+        </member>
+        <member name="P:Model.Role.Code">
+            角色标识，用于程序内部区别查找
+        </member>
+        <member name="P:Model.Role.Authorities">
+            角色拥有的权限，一个角色可以拥有多个权限，一个权限可以属于多个角色，多对多关系
+        </member>
+        <member name="T:Model.RoleType">
+            <summary>
+            角色类型,或身份
+            </summary>
+        </member>
+        <member name="T:Model.RoleAuthority">
+            角色权限中间表，多对多用哪到
+            @see https://docs.microsoft.com/zh-cn/ef/core/modeling/relationships?tabs=fluent-api%2Cfluent-api-simple-key%2Csimple-key
+        </member>
+        <member name="T:Model.UserID">
+            <summary>
+            统一
+            </summary>
+        </member>
+        <member name="T:Model.UserTreeID`1">
+            <summary>
+            统一
+            </summary>
+        </member>
+    </members>
+</doc>
